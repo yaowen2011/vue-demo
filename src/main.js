@@ -13,14 +13,22 @@ import './lib/mui/css/icons-extra.css'
 // 导入自定义样式
 import './assets/css/app.css'
 
+// 导入 axois 发送ajax请求
+import axios from 'axios'
+// 注意：非vue的插件，都是以下这种使用方式！！！
+// 将 axios 添加到 Vue 的原型对象中
+Vue.prototype.$http = axios
+
 // 导入 路由配置
 // ./router 相当查找 ./router/index.js ，index.js 可以省略
 import router from './router'
 
 // 导入 mint-ui 组件
-import { Header, Button } from 'mint-ui'
+import { Header, Button, Swipe, SwipeItem } from 'mint-ui'
 Vue.component(Header.name, Header)
 Vue.component(Button.name, Button)
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
 
 // 3 渲染组件
 const vm = new Vue({
