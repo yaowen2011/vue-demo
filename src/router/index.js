@@ -19,7 +19,11 @@ const router = new VueRouter({
     { path: '/vip', component: Vip },
     { path: '/cart', component: Cart },
     { path: '/search', component: Search },
-  ]
+  ],
+
+  // 修改默认高亮类名为mui的高亮类名
+  // 将来切换菜单的时候，当前菜单会展示高亮效果（高亮效果是由mui提供的）
+  linkActiveClass: 'mui-active'
 })
 
 // 导出路由对象

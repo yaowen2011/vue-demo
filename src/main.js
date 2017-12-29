@@ -8,6 +8,8 @@ import App from './App.vue'
 
 // 导入 mui的样式
 import './lib/mui/css/mui.css'
+// 导入 购物车的小图标（注意：引入样式顺序的问题，先引入mui，再引入extra）
+import './lib/mui/css/icons-extra.css'
 // 导入自定义样式
 import './assets/css/app.css'
 
