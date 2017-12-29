@@ -14,6 +14,9 @@ module.exports = {
     filename: 'bundle.js'
   },
 
+  // 准确定位开发期间的错误
+  devtool: 'eval-source-map',
+
   // 服务器
   devServer: {
     open: true,
