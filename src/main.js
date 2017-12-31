@@ -3,6 +3,17 @@
 // 1 导入vue
 import Vue from 'vue'
 
+// 导入 moment 包(处理时间的包)
+// 文档：http://momentjs.cn/docs/#/parsing/
+// import moment from 'moment'
+// moment的参数表示：要格式化的日期
+// format() 方法：用来格式化日期，参数表示：输入的日期格式
+// console.log( moment('2015-04-16T03:50:28.000Z').format('YYYY-MM-DD') );
+
+// 导入 日期过滤器
+// 因为 过滤器date.js 中没有导出任何内容，所以，我们只需要将js文件导入即可，不需要导入任何的对象
+import './filters/date'
+
 // 2 导入 App.vue 组件
 import App from './App.vue'
 

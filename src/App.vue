@@ -1,14 +1,14 @@
 <template>
   <div class="cms_container">
     <!-- App.vue 是项目的根组件，所有的内容，都展示在App.vue中 -->
-    <mt-header title="黑马程序员 | SH16">
+    <mt-header fixed title="黑马程序员 | SH16">
       <router-link to="/" slot="left">
         <mt-button icon="back">返回</mt-button>
       </router-link>
     </mt-header>
 
     <!-- 路由出口 -->
-    <router-view></router-view>
+    <router-view class="content"></router-view>
 
     <!-- 页脚 -->
     <nav class="mui-bar mui-bar-tab">
@@ -39,5 +39,11 @@
 </script>
 
 <style>
-
+/* 
+	内容被头部和底部导航“吃掉”，也就是固定定位脱标覆盖内容
+	解决：只需要添加 padding 将上下两个区域空出来即可
+*/
+.content {
+	padding: 40px 0 50px;
+}
 </style>
