@@ -1,8 +1,8 @@
 <template>
-  <div class="news">
+  <div class="newslist">
     <ul class="mui-table-view mui-table-view-chevron">
       <li class="mui-table-view-cell mui-media" v-for="item in list" :key="item.id">
-        <a class="mui-navigate-right">
+        <router-link :to=" '/home/newsinfo/' + item.id " class="mui-navigate-right">
           <img class="mui-media-object mui-pull-left" :src="item.img_url">
           <div class="mui-media-body">
             <h3 class="text title" v-text="item.title"></h3>
@@ -11,7 +11,7 @@
               <span>点击次数：{{ item.click }}次</span>
             </p>
           </div>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>

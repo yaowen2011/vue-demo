@@ -10,6 +10,7 @@ import Search from '../components/search/Search.vue'
 
 // 新闻组件
 import NewsList from '../components/news/List.vue'
+import NewsInfo from '../components/news/Info.vue'
 
 // 安装路由插件
 Vue.use(VueRouter)
@@ -26,6 +27,8 @@ const router = new VueRouter({
     // 新闻模块：列表和详情
     // 加入 /home 的目的是为：跳转到新闻模块后，还能让底部首页菜单高亮
     { path: '/home/newslist', component: NewsList },
+    // :id 是路由参数，用来获取不同新闻的id
+    { path: '/home/newsinfo/:id', component: NewsInfo },
   ],
 
   // 修改默认高亮类名为mui的高亮类名
