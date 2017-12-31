@@ -6427,7 +6427,10 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
     var CLASS_SLIDER_ITEM = 'mui-slider-item';
 
    var handle = function(event, target) {
-        if (target.classList && (target.classList.contains(CLASS_CONTROL_ITEM) || target.classList.contains(CLASS_TAB_ITEM))) {
+				// 默认代码：
+        // if (target.classList && (target.classList.contains(CLASS_CONTROL_ITEM) || target.classList.contains(CLASS_TAB_ITEM))) {
+				// 修改 mui 的代码，去掉对带有 mui-tab-item 类元素的处理
+        if (target.classList && (target.classList.contains(CLASS_CONTROL_ITEM))) {
             if (target.parentNode && target.parentNode.classList && target.parentNode.classList.contains(CLASS_SEGMENTED_CONTROL_VERTICAL)) {
                 //vertical 如果preventDefault会导致无法滚动
             } else {

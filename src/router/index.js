@@ -12,6 +12,10 @@ import Search from '../components/search/Search.vue'
 import NewsList from '../components/news/List.vue'
 import NewsInfo from '../components/news/Info.vue'
 
+// 图片分享
+import PhotoList from '../components/photo/List.vue'
+import PhotoInfo from '../components/photo/Info.vue'
+
 // 安装路由插件
 Vue.use(VueRouter)
 
@@ -19,7 +23,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
     { path: '/', redirect: '/home' },
-    { path: '/home', component: Home },
+    { path: '/home', component: Home, name: 'jack' },
     { path: '/vip', component: Vip },
     { path: '/cart', component: Cart },
     { path: '/search', component: Search },
@@ -29,6 +33,10 @@ const router = new VueRouter({
     { path: '/home/newslist', component: NewsList },
     // :id 是路由参数，用来获取不同新闻的id
     { path: '/home/newsinfo/:id', component: NewsInfo },
+
+    // 图片分享模块
+    { path: '/home/photolist', component: PhotoList },
+    { path: '/home/photoinfo/:id', component: PhotoInfo },
   ],
 
   // 修改默认高亮类名为mui的高亮类名

@@ -125,3 +125,33 @@ showInfo(id) {
 - 4 如果有路由参数，需要到 router/index.js 中配置路由参数
 - 5 把组件的基本结构和样式写好
 - 6 发送请求获取数据，展示在组件中
+
+## 编程式导航的使用
+
+```html
+<template>
+  <a class="mui-tab-item" href="/home" @click="goPage('/home')">
+    <span class="mui-icon mui-icon-home"></span>
+    <span class="mui-tab-label">首页</span>
+  </a>
+</template>
+
+<script>
+export default {
+  methods: {
+    goPage(path) {
+      // console.log(this);
+      // 文档：https://router.vuejs.org/zh-cn/essentials/navigation.html
+
+      // 实现编程式导航
+      // path 表示要跳转的路径，与路由规则中的path想对应
+      // name 表示路由的名称，与路由规则中的name想对应
+      // params 表示路由参数
+      // 调用 $router.push({ path: '/home' })
+      // router.push({ name: 'user', params: { userId: 123 }})
+      this.$router.push({ name: 'jack' })
+    }
+  }
+}
+</script>
+```
