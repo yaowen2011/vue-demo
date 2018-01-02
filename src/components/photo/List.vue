@@ -4,7 +4,7 @@
 			<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 				<div class="mui-scroll">
           <!-- :class="{}" 动态添加类 -->
-          <a href="#" class="mui-control-item" :class="{ 'mui-active': item.id === 0 }" v-for="item in catList" :key="item.id">
+          <a href="#" class="mui-control-item" :class="{ 'mui-active': item.id === 0 }" v-for="item in catList" :key="item.id" @click="getImagesList(item.id)">
 						{{ item.title }}
 					</a>
         </div>
@@ -13,25 +13,12 @@
 
 		<!-- 图片列表 -->
 		<ul class="category-img-list">
-      <li class="img-list-item">
-        <img src="http://vue.studyit.io/upload/201504/18/thumb_201504181230434303.jpg" lazy="loaded"> 
+      <li class="img-list-item" v-for="item in imagesList" :key="item.id">
+        <!-- v-lazy 是一个自定义指令，由 mint-ui提供，用来实现图片懒加载 -->
+        <img v-lazy="item.img_url"> 
         <div>
-          <h2>现代简约 明亮的外表卧室卧室背景墙、吊顶黄色</h2>
-          <p>不要简朴不要素雅洋气卧室我做主，高低床榻榻米式靓丽卧室装扮，现代油画壁画帆布画卧室餐厅仟象映画，现代中式卧室装修图欣赏，温馨浪漫，而且很时尚的卧室设计，欧式卧室飘窗装修效果图。</p>
-        </div>
-      </li>
-      <li class="img-list-item">
-        <img src="http://vue.studyit.io/upload/201504/18/thumb_201504181237019134.jpg" lazy="loaded"> 
-        <div>
-          <h2>很美的落地大书柜 可以放超多的图书的吧</h2> 
-          <p>很美的落地大书柜 可以放超多的图书的吧，转角的书柜以及书桌，这里可以收纳超多的东西，书柜,书桌这些是&amp;quot;七彩人生&amp;quot;品，双层书柜组合书柜儿童书柜。</p>
-        </div>
-      </li>
-      <li class="img-list-item">
-        <img src="http://vue.studyit.io/upload/201504/18/thumb_201504181241259978.jpg" lazy="loaded"> 
-        <div>
-          <h2>西班牙阿拉尔孔郊区的80平米一室一厅的公寓</h2>
-          <p>这是一套在西班牙阿拉尔孔郊区的80平米一室一厅的公寓，用一道墙分隔出了客厅与厨房，虽然整体来看室内设计有些混搭风，但似乎某些空间和角度去看又会有着自己的主题。</p>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.zhaiyao }}</p>
         </div>
       </li>
     </ul>
@@ -48,7 +35,9 @@ export default {
   data() {
     return {
       // 分类列表
-      catList: []
+      catList: [],
+      // 图片列表数据
+      imagesList: []
     }
   },
 
@@ -61,10 +50,13 @@ export default {
 
     // 获取分类列表数据
     this.getCategoryList()
+    // 获取图片列表
+    this.getImagesList()
   },
 
   // 方法
   methods: {
+    // 获取分类数据
     getCategoryList() {
       this.$http
         .get('http://vue.studyit.io/api/getimgcategory')
@@ -77,12 +69,31 @@ export default {
             this.catList = data.message
           }
         })
+    },
+
+    // 获取图片列表数据
+    getImagesList(id = 0) {
+      this.$http
+        .get(`http://vue.studyit.io/api/getimages/${id}`)
+        .then(res => {
+          const data = res.data
+
+          if (data.status === 0) {
+            this.imagesList = data.message
+          }
+        })
     }
   }
 }
 </script>
 
 <style lang="scss">
+img[lazy=loading] {
+  width: 40px;
+  height: 300px;
+  margin: auto;
+}
+
 .mui-slider-indicator.mui-segmented-control {
   background-color: #fff;
 }

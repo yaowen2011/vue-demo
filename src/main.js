@@ -35,11 +35,12 @@ Vue.prototype.$http = axios
 import router from './router'
 
 // 导入 mint-ui 组件
-import { Header, Button, Swipe, SwipeItem } from 'mint-ui'
+import { Header, Button, Swipe, SwipeItem, Lazyload } from 'mint-ui'
 Vue.component(Header.name, Header)
 Vue.component(Button.name, Button)
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
+Vue.use(Lazyload)
 
 // 3 渲染组件
 const vm = new Vue({
