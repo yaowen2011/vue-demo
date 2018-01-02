@@ -87,6 +87,25 @@ showInfo(id) {
 }
 ```
 
+## 项目结构
+
+```html
+src\                项目源文件
+  assets\           静态资源（样式、图片）
+  components\       组件
+  filters           过滤器
+  lib\              用到的第三方包（例如：mui）
+  router\           路由
+  App.vue           项目根组件
+  index.html        项目首页（SPA，唯一的页面）
+  main.js           入口js文件（业务逻辑代码）
+.babelrc            babel的配置文件
+package-lock.json   npm 5.x以上下载包的lock文件，保证下载包的版本
+package.json        项目描述文件
+README.md           项目介绍以及功能实现步骤
+webpack.config.js   webpack的配置文件
+```
+
 ## 项目中路由的处理
 
 - 只要是配置路由，那就到 `./src/router/index.js` 中进行配置
@@ -155,3 +174,5 @@ export default {
 }
 </script>
 ```
+
+## vue
