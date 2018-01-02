@@ -175,4 +175,37 @@ export default {
 </script>
 ```
 
-## vue
+## vue过渡效果
+
+```html
+<input type="button" value="toggle" @click="flag=!flag">
+<transition
+  @before-enter="beforeEnter"
+  @enter="enter"
+>
+  <h3 v-show="flag" class="cls">Vue过渡效果</h3>
+</transition>
+
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      flag: false
+    },
+    methods: {
+      // 入场动画之前，设置 元素的起始样式
+      beforeEnter(el) {
+        el.style.transition = 'all 1s ease'
+        el.style.transform = 'translateY(30px)'
+      },
+      enter(el, done) {
+        el.offsetWidth // 或者 写 el.offsetHeight
+        // 为元素设置 进入完成之后的 样式
+        el.style.transform = 'translateY(0px)'
+        // 入场动画完成之后，立即 把 元素隐藏
+        this.flag = !this.flag
+      }
+    }
+  });
+</script>
+```

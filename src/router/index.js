@@ -16,6 +16,11 @@ import NewsInfo from '../components/news/Info.vue'
 import PhotoList from '../components/photo/List.vue'
 import PhotoInfo from '../components/photo/Info.vue'
 
+// 商品购买
+import GoodsList from '../components/goods/List.vue'
+import GoodsInfo from '../components/goods/Info.vue'
+import GoodsDetails from '../components/goods/Details.vue'
+
 // 安装路由插件
 Vue.use(VueRouter)
 
@@ -38,6 +43,11 @@ const router = new VueRouter({
     { path: '/home/photolist', component: PhotoList },
     // name 用来配合编程式导航实现带有参数的路由跳转
     { path: '/home/photoinfo/:id', component: PhotoInfo, name: 'photoinfo' },
+
+    // 商品购买
+    { path: '/home/goodslist', component: GoodsList },
+    { path: '/home/goodsinfo/:id', component: GoodsInfo },
+    { path: '/home/goodsdetail', component: GoodsDetails },
   ],
 
   // 修改默认高亮类名为mui的高亮类名
