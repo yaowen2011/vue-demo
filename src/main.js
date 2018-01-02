@@ -42,6 +42,10 @@ Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
 Vue.use(Lazyload)
 
+// 导入 图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+
 // 3 渲染组件
 const vm = new Vue({
   el: '#app',

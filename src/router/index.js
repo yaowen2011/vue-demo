@@ -36,7 +36,8 @@ const router = new VueRouter({
 
     // 图片分享模块
     { path: '/home/photolist', component: PhotoList },
-    { path: '/home/photoinfo/:id', component: PhotoInfo },
+    // name 用来配合编程式导航实现带有参数的路由跳转
+    { path: '/home/photoinfo/:id', component: PhotoInfo, name: 'photoinfo' },
   ],
 
   // 修改默认高亮类名为mui的高亮类名

@@ -13,7 +13,7 @@
 
 		<!-- 图片列表 -->
 		<ul class="category-img-list">
-      <li class="img-list-item" v-for="item in imagesList" :key="item.id">
+      <li class="img-list-item" v-for="item in imagesList" :key="item.id" @click="goInfo(item.id)">
         <!-- v-lazy 是一个自定义指令，由 mint-ui提供，用来实现图片懒加载 -->
         <img v-lazy="item.img_url"> 
         <div>
@@ -82,6 +82,13 @@ export default {
             this.imagesList = data.message
           }
         })
+    },
+
+    // 编程式导航实现跳转到图片详情页面
+    goInfo(id) {
+      // name 表示要跳转到的路由的name
+      // params 表示传递给路由的参数
+      this.$router.push({ name: 'photoinfo', params: { id } })
     }
   }
 }
