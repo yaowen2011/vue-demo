@@ -33,6 +33,7 @@
     "moment": "^2.20.1",
     "vue": "^2.5.13",
     "vue-preview": "^1.0.5",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   }
 }

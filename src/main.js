@@ -3,6 +3,9 @@
 // 1 导入vue
 import Vue from 'vue'
 
+// 导入 vuex
+import store from './store'
+
 // 导入 moment 包(处理时间的包)
 // 文档：http://momentjs.cn/docs/#/parsing/
 // import moment from 'moment'
@@ -42,11 +45,12 @@ Vue.prototype.$http = axios
 import router from './router'
 
 // 导入 mint-ui 组件
-import { Header, Button, Swipe, SwipeItem, Lazyload, Toast } from 'mint-ui'
+import { Header, Button, Swipe, SwipeItem, Lazyload, Toast, Switch } from 'mint-ui'
 Vue.component(Header.name, Header)
 Vue.component(Button.name, Button)
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
+Vue.component(Switch.name, Switch)
 Vue.use(Lazyload)
 
 // 导入 图片预览插件
@@ -100,5 +104,7 @@ const vm = new Vue({
   el: '#app',
   // 将路由与vue实例关联到一起
   router,
+  // 将状态管理与vue实例关联到一起
+  store,
   render: c => c(App)
 })

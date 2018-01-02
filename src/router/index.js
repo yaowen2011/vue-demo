@@ -46,7 +46,7 @@ const router = new VueRouter({
 
     // 商品购买
     { path: '/home/goodslist', component: GoodsList },
-    { path: '/home/goodsinfo/:id', component: GoodsInfo },
+    { path: '/home/goodsinfo/:id', component: GoodsInfo, name: 'goodsinfo' },
     { path: '/home/goodsdetail', component: GoodsDetails },
   ],
 
