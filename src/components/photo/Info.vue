@@ -56,7 +56,7 @@ export default {
     // 获取图片缩略图
     getThumImgList() {
       this.$http
-        .get(`http://vue.studyit.io/api/getthumimages/${this.$route.params.id}`)
+        .get(`api/getthumimages/${this.$route.params.id}`)
         .then(res => {
           const data = res.data
 
