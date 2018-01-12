@@ -1,7 +1,7 @@
 <template>
   <div class="cms_container">
     <!-- App.vue 是项目的根组件，所有的内容，都展示在App.vue中 -->
-    <mt-header fixed title="黑马程序员 | SH16">
+    <mt-header fixed title="本位牛逼">
 			<!-- $router.go(-1) 通过编程式导航，实现返回上一页 -->
 			<!-- $route.path 表示当前路径 -->
       <a href="javascript:;" slot="left" @click="$router.go(-1)" v-show="$route.path !== '/home'">
